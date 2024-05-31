@@ -1,0 +1,68 @@
+/* Стили для таблиц */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.table tbody tr {
+  transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Стили для сортировочных стрелок */
+.sort-arrow {
+  margin-left: 5px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.asc {
+  border-bottom: 10px solid black;
+}
+
+.desc {
+  border-top: 10px solid black;
+}
+
+/* Единые стили для кнопок */
+button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Синий цвет */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #003d99;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

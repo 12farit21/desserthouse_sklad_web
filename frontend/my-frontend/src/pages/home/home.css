@@ -1,0 +1,194 @@
+/* Подключение шрифта Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Общие стили */
+body {
+    background: url('./background.jpg') no-repeat center center fixed; /* Указание пути к картинке */
+    background-size: cover;
+    font-family: 'Roboto', sans-serif; /* Применение шрифта Roboto */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для контейнера */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Стили для полей */
+.field {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+input[type="checkbox"], input[type="date"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    font-weight: 500; /* Полужирный текст */
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0,86,179,0.25);
+}
+
+/* Стили для таблиц */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white; /* Белый фон для таблиц */
+    border-radius: 8px; /* Скругленные углы */
+    overflow: hidden; /* Обрезка элементов за границами */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень */
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-weight: 400; /* Обычный вес текста */
+}
+
+.table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 700; /* Жирный текст */
+}
+
+.table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Стили для сортировочных стрелок */
+.sort-arrow {
+    margin-left: 5px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.asc {
+    border-bottom: 10px solid black;
+}
+
+.desc {
+    border-top: 10px solid black;
+}
+
+/* Стили для всплывающих окон */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 60%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+    font-weight: 700; /* Жирный текст */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.popup-content button {
+    margin: 10px;
+}
+
+/* Единые стили для кнопок */
+button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Синий цвет */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Полужирный текст */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #003d99;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Дополнительные улучшения */
+input[type="checkbox"] + span {
+    vertical-align: middle;
+}
+
+.field label {
+    margin-left: 20px;
+}
+
+.table-container {
+    margin-bottom: 20px;
+}
+
+#zagolovok-home {
+  text-align: center;
+}
