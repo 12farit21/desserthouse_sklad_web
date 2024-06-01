@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/desserthouse_sklad_web/" element={<Home/>}/>
 
       </Routes>
     </BrowserRouter>
