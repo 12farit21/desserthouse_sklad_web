@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import './DealList.css';
+import { API_URL } from '../../config';
 
 const fields = [
   { id: 'id_deal', label: 'ID Сделки' },
@@ -105,7 +106,7 @@ function DealList() {
   };
 
   const handleSubmit = async () => {
-    const response = await fetch('http://localhost:5000/api/deals', {
+    const response = await fetch(`${API_URL}/api/deals`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(inputData)
@@ -126,7 +127,7 @@ function DealList() {
 
   const handleViewProducts = async () => {
     if (selectedDeal) {
-      const response = await fetch(`http://localhost:5000/api/deal_products/${selectedDeal.id_deal}`);
+      const response = await fetch(`${API_URL}/api/deal_products/${selectedDeal.id_deal}`);
       const data = await response.json();
       setDealProducts(data);
     }

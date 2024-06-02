@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import './SearchItem.css';
+import { API_URL } from '../../config';
 
 const fields = [
   { id: 'id', label: 'id' },
@@ -42,7 +43,7 @@ function SearchForm() {
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/get_razdel_list');
+        const response = await fetch(`${API_URL}/api/get_razdel_list`);
         const data = await response.json();
         setSections(data);
       } catch (error) {
@@ -112,7 +113,7 @@ function SearchForm() {
   };
 
   const handleSubmit = async () => {
-    const response = await fetch('http://localhost:5000/api/search', {
+    const response = await fetch(`${API_URL}/api/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(inputData)
@@ -154,7 +155,7 @@ function SearchForm() {
 
   const handleDealClick = async () => {
     if (selectedItem) {
-      const response = await fetch(`http://localhost:5000/api/deal_by_product/${selectedItem.id}`);
+      const response = await fetch(`${API_URL}/api/deal_by_product/${selectedItem.id}`);
       const data = await response.json();
       setDealData(data);
     }

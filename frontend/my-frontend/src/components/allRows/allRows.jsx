@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './allRows.css';
-
+import { API_URL } from '../../config';
 const AllRows = () => {
     const [data, setData] = useState([]);
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/data');
+            const response = await axios.get(`${API_URL}/api/data`);
             setData(response.data);
         } catch (error) {
             console.error('There was an error fetching data:', error);
