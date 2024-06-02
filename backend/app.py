@@ -40,10 +40,27 @@ scheduler.add_job(run_script_staff, 'interval', days=1)
 scheduler.add_job(run_script_voronka, 'interval', days=1)
 scheduler.add_job(run_script_products, 'interval', minutes=60)
 scheduler.add_job(run_script_deals, 'interval', minutes=65)
-#scheduler.add_job(run_script_test, 'interval', seconds=1)
+scheduler.add_job(run_script_test, 'interval', seconds=10)
 scheduler.start()
 
-run_script_deals()
+
+
+def fetch_data_from_test():
+    conn = sqlite3.connect(DATABASE_PATH)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM test")
+    rows = cursor.fetchall()
+    data = [dict(row) for row in rows]
+    conn.close()
+    return data
+
+@app.route('/api/test_data', methods=['GET'])
+def get_test_data():
+    data = fetch_data_from_test()
+    return jsonify(data)
+
+
 
 # Function to fetch data from the database
 def fetch_data_from_db():
