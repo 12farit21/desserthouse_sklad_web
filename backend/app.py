@@ -43,7 +43,7 @@ scheduler.add_job(run_script_deals, 'interval', minutes=65)
 scheduler.add_job(run_script_test, 'interval', seconds=10)
 scheduler.start()
 
-
+run_script_test()
 
 def fetch_data_from_test():
     conn = sqlite3.connect(DATABASE_PATH)
@@ -60,7 +60,10 @@ def get_test_data():
     data = fetch_data_from_test()
     return jsonify(data)
 
-
+@app.route('/api/run_test_script', methods=['POST'])
+def run_test_script():
+    run_script_test()
+    return jsonify({"message": "Script test.py has been started."})
 
 # Function to fetch data from the database
 def fetch_data_from_db():
