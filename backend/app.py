@@ -6,6 +6,8 @@ import subprocess
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
+from scripts.test import run_test
+
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
@@ -33,7 +35,7 @@ def run_script_deals():
     executor.submit(run_script, 'deal_and_productrows.py')
 
 def run_script_test():
-    executor.submit(run_script, 'test.py')
+    run_test()
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(run_script_staff, 'interval', days=1)

@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 
-from config import DATABASE_PATH
+DATABASE_PATH = './scripts/DB/my_database.db'
 
 def create_table():
     connection = sqlite3.connect(DATABASE_PATH)
@@ -29,6 +29,7 @@ def insert_current_datetime():
     connection.close()
 
 
-
-create_table()
-insert_current_datetime()
+def run_test():
+    create_table()
+    insert_current_datetime()
+run_test()
