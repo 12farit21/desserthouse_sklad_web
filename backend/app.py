@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
-
+#1
 
 DATABASE_PATH = './scripts/DB/my_database.db'
 

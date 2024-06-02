@@ -29,5 +29,6 @@ def insert_current_datetime():
     connection.close()
 
 
+
 create_table()
 insert_current_datetime()
