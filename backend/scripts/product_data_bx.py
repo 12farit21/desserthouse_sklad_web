@@ -1,12 +1,11 @@
 import requests
 import sqlite3
-
+from config import DATABASE_PATH
 print('run product_data_bx')
 
 # Ваш вебхук URL
 webhook_url = "https://desserthouse.bitrix24.kz/rest/292/mnhi213vu9ykx3s1/"
 
-DATABASE_PATH = './DB/my_database.db'
 
 def get_all_products(iblock_id):
     # Initialize an empty list to hold all products

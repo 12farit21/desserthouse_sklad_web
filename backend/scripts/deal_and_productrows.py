@@ -7,11 +7,10 @@ import aiohttp
 import asyncio
 import aiosqlite
 
+from config import DATABASE_PATH
 print("run deal_and_productrows.py")
 
 webhook_url = "https://desserthouse.bitrix24.kz/rest/292/mnhi213vu9ykx3s1/"
-
-DATABASE_PATH = './DB/my_database.db'
 
 def get_deal_list(start=0, limit=50):
     all_deals = []

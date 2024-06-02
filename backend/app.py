@@ -4,29 +4,36 @@ import sqlite3
 from apscheduler.schedulers.background import BackgroundScheduler
 import subprocess
 from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor
 
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
 
-# Path to the SQLite database
+
 DATABASE_PATH = './scripts/DB/my_database.db'
 
-#scheduler
+# Initialize thread pool executor
+executor = ThreadPoolExecutor(max_workers=5)
+
+# Scheduler tasks
+def run_script(script_name):
+    subprocess.run(['python', f'./scripts/{script_name}'])
+
 def run_script_staff():
-    subprocess.run(['python', './scripts/staff_data.py'])
+    executor.submit(run_script, 'staff_data.py')
 
 def run_script_voronka():
-    subprocess.run(['python', './scripts/voronka_and_stage.py'])
+    executor.submit(run_script, 'voronka_and_stage.py')
 
 def run_script_products():
-    subprocess.run(['python', './scripts/product_data_bx.py'])
+    executor.submit(run_script, 'product_data_bx.py')
 
 def run_script_deals():
-    subprocess.run(['python', './scripts/deal_and_productrows.py'])
+    executor.submit(run_script, 'deal_and_productrows.py')
 
 def run_script_test():
-    subprocess.run(['python', './scripts/test.py'])
+    executor.submit(run_script, 'test.py')
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(run_script_staff, 'interval', days=1)
@@ -35,6 +42,8 @@ scheduler.add_job(run_script_products, 'interval', minutes=60)
 scheduler.add_job(run_script_deals, 'interval', minutes=65)
 #scheduler.add_job(run_script_test, 'interval', seconds=1)
 scheduler.start()
+
+run_script_deals()
 
 # Function to fetch data from the database
 def fetch_data_from_db():
@@ -51,8 +60,7 @@ def fetch_data_from_db():
 def get_data():
     data = fetch_data_from_db()
     return jsonify(data)
-#{'iblockId': '', 'iblockSectionId': {'154': True}}
-#{'iblockId': '', 'iblockSectionId': {'154': True, '168': True, '214': True}}
+
 @app.route('/api/search', methods=['POST'])
 def search_data_fromDB():
     search_params = request.json

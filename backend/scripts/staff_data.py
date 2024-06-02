@@ -1,13 +1,13 @@
 import requests
 import sqlite3
-
+from config import DATABASE_PATH
 
 # Ваш вебхук URL
 webhook_url = "https://desserthouse.bitrix24.kz/rest/292/mnhi213vu9ykx3s1/"
 
 print('run staff_data.py')
 
-DATABASE_PATH = './DB/my_database.db'
+
 
 def get_staff_list():
     start = 0
