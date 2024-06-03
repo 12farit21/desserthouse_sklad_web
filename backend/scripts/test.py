@@ -1,5 +1,4 @@
 import sqlite3
-from datetime import datetime
 
 DATABASE_PATH = './scripts/DB/my_database.db'
 
@@ -21,9 +20,9 @@ def insert_current_datetime():
     connection = sqlite3.connect(DATABASE_PATH)
     cursor = connection.cursor()
     
-    current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     insert_query = "INSERT INTO test (date_time) VALUES (?);"
-    cursor.execute(insert_query, (current_datetime,))
+    cursor.execute(insert_query, (1,))
     
     connection.commit()
     connection.close()
