@@ -20,9 +20,9 @@ def insert_current_datetime():
     connection = sqlite3.connect(DATABASE_PATH)
     cursor = connection.cursor()
     
-
+    current_datetime = "asdasd"
     insert_query = "INSERT INTO test (date_time) VALUES (?);"
-    cursor.execute(insert_query, (1))
+    cursor.execute(insert_query, (current_datetime,))
     
     connection.commit()
     connection.close()
@@ -31,3 +31,4 @@ def insert_current_datetime():
 def run_test():
     create_table()
     insert_current_datetime()
+run_test()
