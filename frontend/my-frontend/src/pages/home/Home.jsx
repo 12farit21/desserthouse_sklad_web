@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 import AllRows from '../../components/allRows/allRows'; 
 import SearchItem from '../../components/SearchItem/SearchItem';
 import DealList from '../../components/DealList/DealList';
@@ -27,20 +27,6 @@ const Home = () => {
     setShowSearchItem(false);
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      axios.post('/api/run_test_script')
-        .then(response => {
-          console.log(response.data);
-        })
-        .catch(error => {
-          console.error("There was an error running the test script!", error);
-        });
-    }, 10000); // 10000ms = 10 seconds
-
-    // Cleanup the interval on component unmount
-    return () => clearInterval(intervalId);
-  }, []);
 
 
   return (

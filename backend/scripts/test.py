@@ -32,4 +32,3 @@ def insert_current_datetime():
 def run_test():
     create_table()
     insert_current_datetime()
-run_test()
