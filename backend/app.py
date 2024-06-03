@@ -36,7 +36,7 @@ def run_script_test():
     executor.submit(run_script, 'test.py')
 
 def insert_current_datetime():
-    connection = sqlite3.connect(DATABASE_PATH)
+    connection = sqlite3.connect("./tmp/temp.db")
     cursor = connection.cursor()
     
     current_datetime = "asdasd"
@@ -58,7 +58,7 @@ scheduler.start()
 insert_current_datetime()
 
 def fetch_data_from_test():
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect('./tmp/temp.db')
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM test")
