@@ -22,7 +22,7 @@ def insert_current_datetime():
     
 
     insert_query = "INSERT INTO test (date_time) VALUES (?);"
-    cursor.execute(insert_query, (1,))
+    cursor.execute(insert_query, (1))
     
     connection.commit()
     connection.close()
