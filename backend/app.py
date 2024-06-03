@@ -35,15 +35,25 @@ def run_script_deals():
 def run_script_test():
     executor.submit(run_script, 'test.py')
 
+def insert_current_datetime():
+    connection = sqlite3.connect(DATABASE_PATH)
+    cursor = connection.cursor()
+    
+    current_datetime = "asdasd"
+    insert_query = "INSERT INTO test (date_time) VALUES (?);"
+    cursor.execute(insert_query, (current_datetime,))
+    
+    connection.commit()
+    connection.close()
+
+
 scheduler = BackgroundScheduler()
 scheduler.add_job(run_script_staff, 'interval', days=1)
 scheduler.add_job(run_script_voronka, 'interval', days=1)
 scheduler.add_job(run_script_products, 'interval', minutes=60)
 scheduler.add_job(run_script_deals, 'interval', minutes=65)
-scheduler.add_job(run_script_test, 'interval', seconds=10)
+scheduler.add_job(insert_current_datetime, 'interval', seconds=10)
 scheduler.start()
-
-run_script_test()
 
 def fetch_data_from_test():
     conn = sqlite3.connect(DATABASE_PATH)
