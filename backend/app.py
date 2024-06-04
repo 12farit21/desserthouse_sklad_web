@@ -42,8 +42,8 @@ scheduler.add_job(run_script_staff, 'interval', days=1)
 scheduler.add_job(run_script_voronka, 'interval', days=1)
 scheduler.add_job(run_script_products, 'interval', minutes=60)
 scheduler.add_job(run_script_deals, 'interval', minutes=65)
-scheduler.add_job(run_script_test, 'interval', seconds=10)
-scheduler.start()
+#scheduler.add_job(run_script_test, 'interval', seconds=10)
+#scheduler.start()
 
 
 def fetch_data_from_test():
