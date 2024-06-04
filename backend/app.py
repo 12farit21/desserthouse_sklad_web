@@ -6,12 +6,10 @@ import subprocess
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
-from scripts.test import run_test
-
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
-#1
+
 
 DATABASE_PATH = './scripts/DB/my_database.db'
 
@@ -35,7 +33,7 @@ def run_script_deals():
     executor.submit(run_script, 'deal_and_productrows.py')
 
 def run_script_test():
-    run_test()
+    executor.submit(run_script, 'test.py')
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(run_script_staff, 'interval', days=1)
@@ -43,8 +41,9 @@ scheduler.add_job(run_script_voronka, 'interval', days=1)
 scheduler.add_job(run_script_products, 'interval', minutes=60)
 scheduler.add_job(run_script_deals, 'interval', minutes=65)
 #scheduler.add_job(run_script_test, 'interval', seconds=10)
-#scheduler.start()
+scheduler.start()
 
+#run_script_test()
 
 def fetch_data_from_test():
     conn = sqlite3.connect(DATABASE_PATH)
@@ -124,19 +123,19 @@ def search_data_fromDB():
 def get_razdel_list():
     razdels = [
         {'id': 154, 'name': 'AIRBA FRESH'},
-        {'id': 168, 'name': 'Индивидуальная Упаковка'},
-        {'id': 214, 'name': 'Сырье'},
-        {'id': 234, 'name': 'Импортированные товары'},
-        {'id': 238, 'name': 'Разработка'},
-        {'id': 254, 'name': 'Упаковка'},
-        {'id': 260, 'name': 'Брак'},
-        {'id': 262, 'name': 'Компоненты'},
-        {'id': 264, 'name': 'Полуфабрикаты'},
-        {'id': 274, 'name': 'Алмата'},
+        {'id': 168, 'name': 'ÐÐ½Ð´Ð¸Ð²Ð¸Ð´ÑÐ°Ð»ÑÐ½Ð°Ñ Ð£Ð¿Ð°ÐºÐ¾Ð²ÐºÐ°'},
+        {'id': 214, 'name': 'Ð¡ÑÑÑÐµ'},
+        {'id': 234, 'name': 'ÐÐ¼Ð¿Ð¾ÑÑÐ¸ÑÐ¾Ð²Ð°Ð½Ð½ÑÐµ ÑÐ¾Ð²Ð°ÑÑ'},
+        {'id': 238, 'name': 'Ð Ð°Ð·ÑÐ°Ð±Ð¾ÑÐºÐ°'},
+        {'id': 254, 'name': 'Ð£Ð¿Ð°ÐºÐ¾Ð²ÐºÐ°'},
+        {'id': 260, 'name': 'ÐÑÐ°Ðº'},
+        {'id': 262, 'name': 'ÐÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½ÑÑ'},
+        {'id': 264, 'name': 'ÐÐ¾Ð»ÑÑÐ°Ð±ÑÐ¸ÐºÐ°ÑÑ'},
+        {'id': 274, 'name': 'ÐÐ»Ð¼Ð°ÑÐ°'},
         {'id': 276, 'name': 'test'},
-        {'id': 278, 'name': 'Дессерты'},
-        {'id': 280, 'name': 'Не нарезанные дессерты'},
-        {'id': 308, 'name': 'Десерты 1шт списание'}
+        {'id': 278, 'name': 'ÐÐµÑÑÐµÑÑÑ'},
+        {'id': 280, 'name': 'ÐÐµ Ð½Ð°ÑÐµÐ·Ð°Ð½Ð½ÑÐµ Ð´ÐµÑÑÐµÑÑÑ'},
+        {'id': 308, 'name': 'ÐÐµÑÐµÑÑÑ 1ÑÑ ÑÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ'}
     ]
 
     return jsonify(razdels)
@@ -213,7 +212,7 @@ def get_deal_products(id_deal):
     data = [dict(row) for row in rows]
     conn.close()
 
-    store_name_list = [{1: 'Производство'}, {2: 'Астана'}, {4: 'Алматы'}, {6: 'Шымкент'}, {8: 'Караганда'}]
+    store_name_list = [{1: 'ÐÑÐ¾Ð¸Ð·Ð²Ð¾Ð´ÑÑÐ²Ð¾'}, {2: 'ÐÑÑÐ°Ð½Ð°'}, {4: 'ÐÐ»Ð¼Ð°ÑÑ'}, {6: 'Ð¨ÑÐ¼ÐºÐµÐ½Ñ'}, {8: 'ÐÐ°ÑÐ°Ð³Ð°Ð½Ð´Ð°'}]
     for item in data:
         store_id = item['store_id']
         store_name = ''
