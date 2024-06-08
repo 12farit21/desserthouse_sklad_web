@@ -7,7 +7,7 @@ const fields = [
   { id: 'deal_name', label: 'Название' },
   { id: 'stage_name', label: 'Этап' },
   { id: 'client', label: 'Клиент' },
-  { id: 'opportunity', label: 'Возможность' },
+  { id: 'opportunity', label: 'Сумма' },
   { id: 'currency_id', label: 'Валюта' },
   { id: 'payment_method', label: 'Метод оплаты' },
   { id: 'full_name', label: 'Ответственный' },
