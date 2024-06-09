@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/desserthouse_sklad_web/static/css/main.d1f98387.css",
-    "main.js": "/desserthouse_sklad_web/static/js/main.a8a29442.js",
+    "main.js": "/desserthouse_sklad_web/static/js/main.6737d58c.js",
     "static/js/453.b34e65be.chunk.js": "/desserthouse_sklad_web/static/js/453.b34e65be.chunk.js",
     "static/media/background.jpg": "/desserthouse_sklad_web/static/media/background.deac6ab7c8a91bd514b0.jpg",
     "index.html": "/desserthouse_sklad_web/index.html",
     "main.d1f98387.css.map": "/desserthouse_sklad_web/static/css/main.d1f98387.css.map",
-    "main.a8a29442.js.map": "/desserthouse_sklad_web/static/js/main.a8a29442.js.map",
+    "main.6737d58c.js.map": "/desserthouse_sklad_web/static/js/main.6737d58c.js.map",
     "453.b34e65be.chunk.js.map": "/desserthouse_sklad_web/static/js/453.b34e65be.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d1f98387.css",
-    "static/js/main.a8a29442.js"
+    "static/js/main.6737d58c.js"
   ]
 }
